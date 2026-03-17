@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ghidra-callgraph"
+version = "0.1.0"
+description = "Extract call graphs from compiled binaries using Ghidra via pyhidra"
+readme = "README.md"
+license = "AGPL-3.0-only"
+requires-python = ">=3.10"
+authors = [
+    {name = "Georgios Alexopoulos"},
+]
+dependencies = [
+    "pyhidra",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ghidra-stubs",
+]
+
+[project.scripts]
+ghidra-callgraph = "ghidra_callgraph.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ghidra_callgraph*"]
